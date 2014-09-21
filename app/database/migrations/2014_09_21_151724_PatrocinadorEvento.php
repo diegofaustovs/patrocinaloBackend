@@ -13,6 +13,11 @@ class PatrocinadorEvento extends Migration {
 	public function up()
 	{
 		Schema::create('PatrocinadorEvento', function($table){
+            $table -> integer('id_patrocinador');
+            $table -> integer('id_evento');
+        });
+
+        Schema::table('PatrocinadorEvento', function($table){
             $table -> foreign ('id_patrocinador') -> references('id') -> on('patrocinadores');
             $table -> foreign ('id_evento') -> references('id') -> on('eventos');
         });

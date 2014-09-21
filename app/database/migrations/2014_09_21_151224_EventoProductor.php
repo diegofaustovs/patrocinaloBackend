@@ -13,8 +13,13 @@ class EventoProductor extends Migration {
 	public function up()
 	{
         Schema::create('EventoProductor', function($table){
-            $table -> foreign ('id_productor') -> references('id') -> on('productores');
-            $table -> foreign ('id_evento') -> references('id') -> on('eventos');
+            $table -> integer('id_productor');
+            $table -> integer('id_evento');
+        });
+
+        Schema::table('EventoProductor', function($table){
+            $table -> foreign('id_productor')->references('id')->on('productores');
+            $table -> foreign('id_evento')->references('id')->on('eventos');
         });
 	}
 
